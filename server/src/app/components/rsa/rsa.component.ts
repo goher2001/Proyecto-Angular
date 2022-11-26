@@ -11,7 +11,7 @@ export class RsaComponent implements OnInit {
 
   constructor(private RSAService: RsaService) { 
 
-    this.rsa = RSAService.getEmployees(); 
+
   }
 
   ngOnInit(): void {}

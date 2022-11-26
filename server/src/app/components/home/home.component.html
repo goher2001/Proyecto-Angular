@@ -1,13 +1,39 @@
 <div class="jumbotron">
-    <h1 class="display-4">Hello, world!</h1>
+    <h1 class="display-4 mb-3">Ciberseguridad</h1>
     <p class="lead">
-      This is a simple hero unit, a simple jumbotron-style component for calling
-      extra attention to featured content or information.
+        Bienvenidos a la página principal del proyecto de cibserseguridad,
+         pulsa los botones para añadir a los integrantes
     </p>
     <hr class="my-4" />
     <p>
-      It uses utility classes for typography and spacing to space content out
-      within the larger container.
+     
     </p>
-    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+    <div class="row">
+      <a class="col btn btn-secondary  " style="width: 50%;" (click)="AddFerran()" role="button">Añadir a Ferran</a>
+      <a class="col btn btn-secondary " (click)="AddJaskie()" role="button">Añadir a Jaskirath</a>
+      <a class="col btn btn-secondary " (click)="AddDiego()" role="button">Añadir a Diego</a>
+      
+    </div>
+   
+    <div class="card " style="margin-top: 5%; text-align: center;">
+
+      <table >
+        <thead>
+          <div class="row mb-2">
+          <tr class="col">ID</tr>
+          <tr class="col">Nombre</tr>
+          <tr class="col">Edad</tr>
+        </div>
+        </thead>
+        <tbody *ngFor="let item of RSAPublicKey;let i index">
+        <div class="row mb-1">
+        <tr class="col">{{item.id}}</tr>
+        <tr class="col">{{item.name}}</tr>
+        <tr class="col">{{item.age}}</tr>
+    
+      
+      </div>
+    </tbody>
+      </table>
+    </div>
   </div>

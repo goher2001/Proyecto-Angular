@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { ROUTES } from './app.routes';
@@ -15,7 +16,8 @@ import { RsaService } from './services/rsa.service';
     RsaComponent
   ],
   imports: [
-   BrowserModule, RouterModule.forRoot(ROUTES)
+   BrowserModule, RouterModule.forRoot(ROUTES), HttpClientModule
+   
   ],
   providers: [RsaService],
   bootstrap: [AppComponent]

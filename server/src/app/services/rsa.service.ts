@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -6,52 +8,21 @@ import { Injectable } from '@angular/core';
 export class RsaService {
 
 
-  employees: any[] = [ 
-    {
-      id: 0,
-      isActive: false,
-      age: 39,
-      name: {
-        first: 'Patsy',
-        last: 'Moore',
-      },
-      company: 'ZYTREX',
-      email: 'patsy.moore@zytrex.net',
-      favoriteFruit: 'strawberry',
-    },
-    {
-      id: 1,
-      isActive: true,
-      age: 37,
-      name: {
-        first: 'Valencia',
-        last: 'Flores',
-      },
-      company: 'AQUAMATE',
-      email: 'valencia.flores@aquamate.us',
-      favoriteFruit: 'banana',
-    },
-    {
-      id: 2,
-      isActive: false,
-      age: 37,
-      name: {
-        first: 'Leona',
-        last: 'Wyatt',
-      },
-      company: 'SENMAO',
-      email: 'leona.wyatt@senmao.io',
-      favoriteFruit: 'apple',
-    },
-  ];
+ 
+ 
+  constructor(private http: HttpClient) {} 
 
-  constructor() { }
 
-  getEmployees() { 
-    return this.employees;
-  }
+AddFerran():Observable<any>{
+  return this.http.get<any>('http://localhost:3000/AddFerran')
+ }
 
-  getEmployee(id: number) { 
-    return this.employees[id];
-  }
+ AddDiego():Observable<any>{
+  return this.http.get<any>('http://localhost:3000/AddDiego')
+ }
+ AddJaskie():Observable<any>{
+  return this.http.get<any>('http://localhost:3000/AddJaskie')
+ }
+
+
 }
