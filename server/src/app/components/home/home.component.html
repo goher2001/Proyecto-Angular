@@ -8,32 +8,31 @@
     <p>
      
     </p>
-    <div class="row">
-      <a class="col btn btn-secondary  " style="width: 50%;" (click)="AddFerran()" role="button">Añadir a Ferran</a>
-      <a class="col btn btn-secondary " (click)="AddJaskie()" role="button">Añadir a Jaskirath</a>
-      <a class="col btn btn-secondary " (click)="AddDiego()" role="button">Añadir a Diego</a>
-      
-    </div>
+  
    
-    <div class="card " style="margin-top: 5%; text-align: center;">
-
-      <table >
-        <thead>
-          <div class="row mb-2">
-          <tr class="col">ID</tr>
-          <tr class="col">Nombre</tr>
-          <tr class="col">Edad</tr>
+    <div class="card w-25" style="margin-top: 15%; text-align: center; margin: auto;">
+      <div class="card-body">
+        <div class="row">
+          <input type="text" [(ngModel)]="Username" style="margin-bottom: 4%; border-radius: 7px;"  placeholder="Nombre user">
         </div>
-        </thead>
-        <tbody *ngFor="let item of RSAPublicKey;let i index">
-        <div class="row mb-1">
-        <tr class="col">{{item.id}}</tr>
-        <tr class="col">{{item.name}}</tr>
-        <tr class="col">{{item.age}}</tr>
-    
-      
+        <div class="row">
+          <input type="text" style="border-radius: 7px;" [(ngModel)]="userpassword" placeholder="Contraseña">
+        </div>
+
+        <div class="row">
+          <input type="text" style="border-radius: 7px;" [(ngModel)]="privateKey" placeholder="Contraseña">
+        </div>
+
+        <div class="row">
+          <input type="text" style="border-radius: 7px;" [(ngModel)]="mensaje" placeholder="Contraseña">
+        </div>
+       
       </div>
-    </tbody>
-      </table>
+      <div class="card-footer">
+        <button class="btn btn-secondary" (click)="Registrar()">Registrarse</button>
+        <button class="btn btn-secondary" (click)="Firmar()">FIrmar y verificar</button>
+      </div>
+
+     
     </div>
   </div>
