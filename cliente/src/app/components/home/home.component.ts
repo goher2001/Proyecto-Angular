@@ -3,6 +3,8 @@ import { RsaService } from 'src/app/services/rsa.service';
 import * as claveRSA from 'src/app/rsa'
 import * as user from 'src/app/model/user'
 import { __values } from 'tslib';
+import { Router, RouterLink } from '@angular/router';
+
 
 @Component({
   selector: 'app-home',
@@ -11,7 +13,7 @@ import { __values } from 'tslib';
 })
 export class HomeComponent {
 
-  constructor(private pruebaService: RsaService){
+  constructor(private pruebaService: RsaService, private _router: Router){
 
   }
 
@@ -19,6 +21,7 @@ export class HomeComponent {
   userpassword:string ='';
   privateKey:bigint=0n;
   mensaje:bigint=0n;
+  error:number=-1;
    classes: Array<user.User> =[]
   
 
@@ -41,7 +44,7 @@ export class HomeComponent {
       async data=>{
         var newuser: user.User = new user.User(this.Username,this.userpassword,data.pubE,data.privN,data.privD)
         this.classes.push(newuser);
-        console.log(this.classes)
+       
         
       }
     )
@@ -51,24 +54,19 @@ export class HomeComponent {
 
     var found = this.classes.find(value => (value.name === this.Username)&&(value.password===this.userpassword))
     if(found){
-      console.log("bien")
+     localStorage.setItem('userLoggeado',this.Username)
+
+     this._router.navigate(['/rsa']);
     }
     else{
-      console.log('mal')
+      this.error=1;
     }
   }
 
-  async Firmar(){
-    
-    var found = this.classes.find(value=>(value.name === 'jaskie'))
-   // if(found){
-      console.log('hols')
-      let privada: claveRSA.RsaPrivateKey = new  claveRSA.RsaPrivateKey(this.privateKey,179594136643155679113162790150632306207235392284218462592197681766549555344457458652339139580350769900680575559082556317850630407510138639768279602686282320375294868038048143428864756116717586319849244422467220085662067639465680690200899115829038312033310126898261753276541121228030800306368072902199867842091n)
-      privada.sign(this.mensaje);
-      this.pruebaService.Firmar(privada.sign(this.mensaje),'jaskie').subscribe();
-   // }
-
-    
+  async Reseterror(){
+    this.error=-1;
   }
+
+ 
 
 }

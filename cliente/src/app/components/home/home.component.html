@@ -13,16 +13,20 @@
     <div class="card w-25" style="margin-top: 15%; text-align: center; margin: auto;">
       <div class="card-body">
         <div class="row">
-          <input type="text" [(ngModel)]="Username" style="border-radius: 7px;"  placeholder="Nombre user">
+          <input type="text" [(ngModel)]="Username" style="border-radius: 7px;margin-bottom: 10px;"  placeholder="Nombre user">
         </div>
         <div class="row">
           <input type="text" style="border-radius: 7px;" [(ngModel)]="userpassword" placeholder="Contraseña">
         </div>
 
+        <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="error==1" style="margin-top: 5px">
+          <strong>ERROR!</strong> Credenciales incorrectas.
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="Reseterror()"></button>
+        </div>
 
       </div>
       <div class="card-footer">
-        <button class="btn btn-secondary" style="margin-bottom: 10px;" (click)="Registrar()">Registrarse</button>
+        <button class="btn btn-secondary" style="margin-right: 5px;" (click)="Registrar()">Registrarse</button>
         <button class="btn btn-secondary" (click)="IniciarSesion()">Iniciar sesión</button>
       </div>
 
