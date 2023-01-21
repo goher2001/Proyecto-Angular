@@ -1,18 +1,18 @@
 export class User {
     name: string
     password: string
-    pubKeyE: bigint
-    privKeyD:bigint
+    pubKeyE: number
+    //privKeyD:bigint
     
-    n:bigint
+    n:number;
 
-    constructor( name: string,password: string, pubKeyE: bigint, n:bigint, privKeyD:bigint){
-
+    constructor( name: string,password: string, pubKeyE: number, n:number )//), n:bigint, privKeyD:bigint){
+{
         this.name=name;
         this.password=password;
         this.pubKeyE=pubKeyE;
         this.n = n;
-        this.privKeyD=privKeyD;
+        //this.privKeyD=privKeyD;
 
     }
 }

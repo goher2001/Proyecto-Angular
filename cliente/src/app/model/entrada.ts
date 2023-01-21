@@ -1,15 +1,18 @@
 export class entrada {
-    nombre: string
-    precio: string
-    cipherMessage: number
-    nombreComprador: string;
 
-    constructor(  nombre: string,precio: string, cipherMessage: number, nombreComprador: string){
+    id: string
+    evento: string
+    propietario: string
+    propietarioname:string
+   
 
-        this.nombre= nombre;
-        this.precio=precio;
-        this.cipherMessage=cipherMessage;
-        this.nombreComprador=nombreComprador;
+    constructor(  id: string,evento: string, propietario: string,propietarioname:string){
+
+        this.id= id;
+        this.evento=evento;
+        this.propietario=propietario;
+        this.propietarioname=propietarioname
+        
         
     }
 }

@@ -1,18 +1,79 @@
+<div *ngIf="principalBool">
+<h5>Menú principal</h5>
+<hr>
 <div class="row">
   <div class="col">
+    <div class="card-body" style="text-align: center; height: 80%;">
+      <div class="card" type="button" (click)="setPlataforma()" style="background-color: beige;">
+        <h6>Compra una entrada</h6>
+       
+      </div>
+    </div>
+  </div>
+ 
+</div>
+
+<div  class="row " style="margin-top: 2%;">
+  <div class="col">
     <div class="card">
       <div class="card-body">
-        <p>Compra una entrada</p>
-        <button class="btn btn-secondary">Entrar</button>
+        <h5>Entradas adquiridas</h5>
+        <hr>
+        <div class="row">
+          <div class="col">ID</div>
+          <div class="col">Evento</div>
+        </div>
+        <div class="row" *ngFor="let entrada of entradasCompradas">
+          <div class="col">{{entrada.id}}</div>
+          <div class="col">{{entrada.evento}}</div>
+        </div>
       </div>
     </div>
   </div>
   <div class="col">
-    <div class="card">
+    <div class="card" style="height: 100%;">
       <div class="card-body">
-        <p>Revende una entrada</p>
-        <button class="btn btn-secondary">Entrar</button>
+        <h5>Peticiones recibidas</h5>
+        <hr>
+        <div class="row" style="margin-bottom: 2%;">
+          <div class="col">ID entrada</div>
+          <div class="col">Solicitante</div>
+          <div class="col"></div>
+        </div>
+        <div class="row" style="margin-bottom: 2%;" *ngFor="let peticion of peticionesRecibidas">
+          <div class="col">{{peticion.identrada}}</div>
+          <div class="col">{{peticion.Comprador}}</div>
+          <div class="col"><button class="btn btn-sm btn-secondary">Aceptar peticion</button></div>
+        </div>
+       
       </div>
     </div>
   </div>
+
+</div>
+</div>
+
+<div *ngIf="ventaPlataforma">
+  <h5>Entradas disponibles de la plataforma</h5>
+  <button class="btn btn-secondary" (click)="setPrincipal()">Volver</button>
+  <hr>
+  <div class="card">
+    <div class="card-body">
+      <div class="row" style="margin-bottom: 2%;">
+        <div class="col"><b>ID</b></div>
+        <div class="col"><b>Evento</b></div>
+        <div class="col"><b>Propietario</b></div>
+        <div class="col"></div>
+      </div>
+      <div class="row" style="margin-bottom: 2%;" *ngFor="let entrada of entradasPlataforma; let i=index">
+        <div class="col">{{entrada.id}}</div>
+        <div class="col">{{entrada.evento}}</div>
+        <div class="col">{{entrada.propietarioname}}</div>
+        <div class="col">
+          <button class="btn btn-secondary" (click)="comprarEntrada(i)">Comprar entrada</button>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
 </div>

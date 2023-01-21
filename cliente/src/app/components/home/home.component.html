@@ -23,6 +23,10 @@
           <strong>ERROR!</strong> Credenciales incorrectas.
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="Reseterror()"></button>
         </div>
+        <div class="alert alert-info alert-dismissible fade show" role="alert" *ngIf="error==0" style="margin-top: 5px">
+          <strong>Éxito!</strong> Registro completado.
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="Reseterror()"></button>
+        </div>
 
       </div>
       <div class="card-footer">
